@@ -38,7 +38,7 @@
         <div class="absolute -top-40 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-orange-500/10 blur-3xl"></div>
 
         <section class="relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center text-center">
-            <div class="mb-8 flex items-center gap-3">
+            <div class="my-8 flex items-center gap-3">
                 <img src="/assets/imgs/HivePanelLogo.png" alt="HivePanel Logo" class="h-16">
             </div>
 
@@ -149,7 +149,7 @@
                 });
             </script>
 
-            <p class="mt-14 text-xs text-zinc-600">
+            <p class="mt-14 text-xs text-zinc-600 mb-8">
                 © <?= date('Y') ?> HivePanel
             </p>
         </section>
