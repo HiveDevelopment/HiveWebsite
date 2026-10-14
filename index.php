@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>HivePanel - Modern Open Source Game Server Management</title>
+    <title>HivePanel - Open Source Game Server and Bot Hosting</title>
 
     <meta
         name="description"
-        content="HivePanel is a modern, open source game server management panel for deploying, managing and scaling game servers across your own infrastructure."
+        content="HivePanel is an MIT-licensed, self-hosted panel for game servers and bots, with Minecraft installers, custom modpacks, recipe preinstalls and multi-node management."
     >
 
     <meta
@@ -35,29 +35,29 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="HivePanel">
-    <meta property="og:title" content="HivePanel - Modern Open Source Game Server Management">
+    <meta property="og:title" content="HivePanel - Open Source Game Server and Bot Hosting">
     <meta
         property="og:description"
-        content="Deploy, manage and scale game servers across your own infrastructure with HivePanel, a modern open source game server management platform."
+        content="Manage game servers and bots on your own infrastructure, with Minecraft installers, modpack building, source preinstalls, extensions and themes."
     >
     <meta property="og:url" content="https://hivepanel.dev/">
-    <meta property="og:image" content="https://hivepanel.dev/assets/imgs/social-preview.png">
-    <meta property="og:image:secure_url" content="https://hivepanel.dev/assets/imgs/social-preview.png">
+    <meta property="og:image" content="https://hivepanel.dev/assets/imgs/gallery/server-index.png">
+    <meta property="og:image:secure_url" content="https://hivepanel.dev/assets/imgs/gallery/server-index.png">
     <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="HivePanel open source game server management panel">
+    <meta property="og:image:width" content="1912">
+    <meta property="og:image:height" content="914">
+    <meta property="og:image:alt" content="HivePanel game server and bot hosting panel">
     <meta property="og:locale" content="en_GB">
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="HivePanel - Modern Open Source Game Server Management">
+    <meta name="twitter:title" content="HivePanel - Open Source Game Server and Bot Hosting">
     <meta
         name="twitter:description"
-        content="Deploy, manage and scale game servers across your own infrastructure with HivePanel."
+        content="Game servers, bots and reusable installs. Manage your infrastructure with the MIT-licensed HivePanel ecosystem."
     >
-    <meta name="twitter:image" content="https://hivepanel.dev/assets/imgs/social-preview.png">
-    <meta name="twitter:image:alt" content="HivePanel open source game server management panel">
+    <meta name="twitter:image" content="https://hivepanel.dev/assets/imgs/gallery/server-index.png">
+    <meta name="twitter:image:alt" content="HivePanel game server and bot hosting panel">
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/imgs/apple-touch-icon.png">
@@ -102,8 +102,9 @@
             'url' => 'https://hivepanel.dev/',
             'applicationCategory' => 'DeveloperApplication',
             'operatingSystem' => 'Linux',
-            'description' => 'HivePanel is a modern, open source game server management panel for deploying, managing and scaling game servers across your own infrastructure.',
-            'image' => 'https://hivepanel.dev/assets/imgs/social-preview.png',
+            'license' => 'https://opensource.org/license/mit',
+            'description' => 'HivePanel is an MIT-licensed, self-hosted panel for game servers and bots, with Minecraft installers, custom modpacks, recipe preinstalls and multi-node management.',
+            'image' => 'https://hivepanel.dev/assets/imgs/gallery/server-index.png',
             'softwareHelp' => [
                 '@type' => 'WebPage',
                 'url' => 'https://github.com/HiveDevelopment',
@@ -120,6 +121,8 @@
     </script>
 
     <style>
+        [data-feature-category][hidden] { display: none; }
+        [data-feature-filter][aria-pressed="true"] { border-color: rgba(251, 146, 60, .5); color: #fb923c; background: rgba(249, 115, 22, .08); }
         html {
             scroll-behavior: smooth;
         }
@@ -211,9 +214,10 @@
             }
         }
     </style>
+<noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 </head>
 
-<body class="bg-[#090909] text-white antialiased">
+<body id="top" class="bg-[#090909] text-white antialiased">
 
 <?php
 $images = [
@@ -252,58 +256,121 @@ $images = [
 $features = [
     [
         'icon' => 'server',
-        'title' => 'Built for game servers',
-        'description' => 'HivePanel is designed around running and managing game servers from the start, rather than adapting a generic infrastructure dashboard.',
+        'title' => 'Live console and metrics',
+        'description' => 'Follow console output, control power and monitor CPU, memory, disk and network usage from your Cell.',
+        'category' => 'daily',
     ],
     [
         'icon' => 'box',
-        'title' => 'Isolated Cells',
-        'description' => 'Every Cell runs independently with enforced resource limits, keeping workloads separated from one another.',
+        'title' => 'Files, SFTP and configuration',
+        'description' => 'Browse, edit, upload and transfer files. Game-aware configuration pages follow the Cell’s Comb.',
+        'category' => 'daily',
     ],
     [
         'icon' => 'nodes',
-        'title' => 'Scale with Nodes',
-        'description' => 'Add additional machines as your infrastructure grows while continuing to manage everything from one Panel.',
+        'title' => 'Multi-node infrastructure',
+        'description' => 'Manage Cells across physical servers and VMs, with Worker connectivity, node settings and resource limits.',
+        'category' => 'infrastructure',
     ],
     [
-        'icon' => 'zap',
-        'title' => 'Fast by design',
-        'description' => 'A responsive interface focused on the tasks server owners and infrastructure administrators actually perform.',
-    ],
-    [
-        'icon' => 'import',
-        'title' => 'Simple migrations',
-        'description' => 'Bring existing servers into HivePanel without manually rebuilding every configuration from scratch.',
+        'icon' => 'comb',
+        'title' => 'Minecraft installers',
+        'description' => 'Browse JARs, mods, plugins and modpacks through HiveRegistry, with version and loader selection.',
+        'category' => 'install',
     ],
     [
         'icon' => 'code',
-        'title' => 'Open source',
-        'description' => 'Inspect it, contribute to it, extend it and deploy it on infrastructure you control.',
+        'title' => 'Custom modpack builder',
+        'description' => 'Select a Minecraft version and loader, resolve required dependencies, save packs and export for Modrinth or CurseForge.',
+        'category' => 'install',
+    ],
+    [
+        'icon' => 'import',
+        'title' => 'Recipe-based preinstalls',
+        'description' => 'Offer applications such as Discord Tickets with Git checkout, dependency installation and file operations.',
+        'category' => 'install',
+    ],
+    [
+        'icon' => 'zap',
+        'title' => 'Editable startup and image choices',
+        'description' => 'Update Comb variables after installation, choose an administrator-offered runtime image and retain values during reinstall.',
+        'category' => 'install',
+    ],
+    [
+        'icon' => 'nodes',
+        'title' => 'Network and databases',
+        'description' => 'Assign primary and additional allocations, add allocation notes and manage Cell databases through configured hosts.',
+        'category' => 'daily',
+    ],
+    [
+        'icon' => 'box',
+        'title' => 'Backups and schedules',
+        'description' => 'Create and restore backups, and automate console commands, power actions and recurring maintenance.',
+        'category' => 'daily',
+    ],
+    [
+        'icon' => 'import',
+        'title' => 'Import and migration tools',
+        'description' => 'Import server files and use supported migration workflows to bring existing servers into HivePanel.',
+        'category' => 'infrastructure',
+    ],
+    [
+        'icon' => 'code',
+        'title' => 'Nectar extensions',
+        'description' => 'Add full panel pages, sidebar entries and interface slots, with declared permissions reviewed by administrators.',
+        'category' => 'customize',
+    ],
+    [
+        'icon' => 'comb',
+        'title' => 'Themes and language preferences',
+        'description' => 'Admins define themes with design tokens; users choose offered themes. Language files support English and partial German.',
+        'category' => 'customize',
+    ],
+    [
+        'icon' => 'server',
+        'title' => 'Access and administration',
+        'description' => 'Manage users, roles, scoped Cell access and activity records, with two-factor authentication options.',
+        'category' => 'infrastructure',
+    ],
+    [
+        'icon' => 'worker',
+        'title' => 'Panel and Worker updates',
+        'description' => 'Manage update workflows from the admin area and follow their progress and reported status.',
+        'category' => 'infrastructure',
+    ],
+    [
+        'icon' => 'code',
+        'title' => 'MIT-licensed and self-hosted',
+        'description' => 'Panel, Worker and Registry are MIT-licensed. Run the stack on your own infrastructure and adapt it to your needs.',
+        'category' => 'customize',
     ],
 ];
 
 $combs = [
-    [
-        'name' => 'Minecraft Paper',
-        'runtime' => 'Java',
-        'tag' => 'Minecraft',
-    ],
-    [
-        'name' => 'Minecraft Vanilla',
-        'runtime' => 'Java',
-        'tag' => 'Minecraft',
-    ],
-    [
-        'name' => 'Velocity',
-        'runtime' => 'Java',
-        'tag' => 'Proxy',
-    ],
-    [
-        'name' => 'Minecraft Forge',
-        'runtime' => 'Java',
-        'tag' => 'Modded',
-    ],
+    ['name' => 'Minecraft Paper', 'runtime' => 'Java', 'tag' => 'Minecraft'],
+    ['name' => 'Minecraft Vanilla', 'runtime' => 'Java', 'tag' => 'Minecraft'],
+    ['name' => 'Minecraft Forge', 'runtime' => 'Java', 'tag' => 'Modded'],
+    ['name' => 'Velocity & BungeeCord', 'runtime' => 'Java', 'tag' => 'Proxies'],
+    ['name' => 'Discord.js Bot Hosting', 'runtime' => 'Node.js', 'tag' => 'Bots'],
+    ['name' => 'Custom applications', 'runtime' => 'Comb-defined', 'tag' => 'Custom'],
 ];
+
+$showcase = [
+    ['src' => '/assets/imgs/gallery/modpack-builder.png', 'title' => 'Build a pack that is yours.', 'description' => 'Choose a Minecraft version and loader, assemble your mod list, then save or export the pack.', 'label' => 'Custom modpack builder', 'icon' => 'code'],
+    ['src' => '/assets/imgs/gallery/minecraft-installers.png', 'title' => 'Find it. Review it. Install it.', 'description' => 'Browse Minecraft content through HiveRegistry and install the version that fits your server.', 'label' => 'Minecraft catalogue and installer', 'icon' => 'comb'],
+    ['src' => '/assets/imgs/gallery/source-preinstalls.png', 'title' => 'Go from Git to a running application.', 'description' => 'Choose an offered source recipe, customize its installation fields and follow the build in your Cell.', 'label' => 'Application preinstalls', 'icon' => 'import'],
+    ['src' => '/assets/imgs/gallery/nectar-extension.png', 'title' => 'Extensions that feel at home.', 'description' => 'Full pages, familiar navigation and interface slots bring new tools into the panel experience.', 'label' => 'Nectar extension page', 'icon' => 'code'],
+    ['src' => '/assets/imgs/gallery/panel-themes.png', 'title' => 'Make your panel look like your panel.', 'description' => 'Admins define the themes. Users choose their preferred look from the themes offered to them.', 'label' => 'Themes and design tokens', 'icon' => 'comb'],
+    ['src' => '/assets/imgs/gallery/live-cell-controls.png', 'title' => 'See what your server is doing.', 'description' => 'Keep the console, power controls and resource usage together in one focused Cell view.', 'label' => 'Live console and resource metrics', 'icon' => 'server'],
+];
+
+// One gallery: new feature highlights first, followed by everyday management.
+$showcase[5]['fallback'] = '/assets/imgs/gallery/server-index.png';
+$gallery = $showcase;
+foreach ($images as $image) {
+    if ($image['src'] === '/assets/imgs/gallery/server-index.png') continue;
+    $gallery[] = [...$image, 'label' => $image['title'], 'icon' => 'server'];
+}
 
 function icon(string $name): string
 {
@@ -404,7 +471,7 @@ function icon(string $name): string
 
     <header class="fixed inset-x-0 top-0 z-40 border-b border-white/[0.06] bg-[#090909]/75 backdrop-blur-xl">
         <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
-            <a href="#" class="flex items-center">
+            <a href="#top" class="flex items-center">
                 <img
                     src="/assets/imgs/HivePanelLogo.png"
                     alt="HivePanel"
@@ -412,11 +479,13 @@ function icon(string $name): string
                 >
             </a>
 
-            <nav class="hidden items-center gap-8 md:flex">
+            <nav class="hidden items-center gap-5 xl:flex">
                 <a href="#features" class="text-sm font-medium text-zinc-400 transition hover:text-white">
                     Features
                 </a>
 
+                <a href="#installers" class="text-sm font-medium text-zinc-400 transition hover:text-white">Installers</a>
+                <a href="#ecosystem" class="text-sm font-medium text-zinc-400 transition hover:text-white">Ecosystem</a>
                 <a href="#preview" class="text-sm font-medium text-zinc-400 transition hover:text-white">
                     Preview
                 </a>
@@ -468,12 +537,12 @@ function icon(string $name): string
                     </div>
 
                     <h1 class="text-5xl font-bold leading-[1.02] tracking-[-0.045em] text-white sm:text-6xl md:text-7xl lg:text-[88px]">
-                        Game server management,
+                        Game servers and bots,
                         <span class="text-orange-400">rebuilt.</span>
                     </h1>
 
                     <p class="mx-auto mt-8 max-w-3xl text-base leading-8 text-zinc-400 sm:text-lg md:text-xl md:leading-9">
-                        HivePanel is a modern, open source platform for deploying, managing and scaling game servers without the clutter.
+                        Run game servers and bots on your own infrastructure. Install Minecraft content, build custom modpacks and deploy applications from source, all from one panel.
                     </p>
 
                     <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -589,18 +658,24 @@ function icon(string $name): string
                     </p>
 
                     <h2 class="text-4xl font-bold tracking-tight text-white md:text-5xl">
-                        Everything you need.
-                        <span class="text-zinc-600">Nothing you don't.</span>
+                        From first install
+                        <span class="text-zinc-600">to everyday operations.</span>
                     </h2>
 
                     <p class="mt-6 max-w-2xl text-base leading-8 text-zinc-400">
-                        HivePanel focuses on making everyday game server administration straightforward while still giving infrastructure operators the control they need.
+                        Manage the everyday details of hosting, then extend the panel with reusable Combs, application recipes, Nectar extensions and administrator-defined themes.
                     </p>
                 </div>
 
-                <div class="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                <div class="mt-10 flex flex-wrap gap-2" role="group" aria-label="Filter features">
+                    <?php foreach (['all' => 'All features', 'daily' => 'Daily management', 'install' => 'Install & configure', 'infrastructure' => 'Infrastructure', 'customize' => 'Customize'] as $category => $label): ?>
+                        <button type="button" data-feature-filter="<?= htmlspecialchars($category) ?>" aria-pressed="<?= $category === 'all' ? 'true' : 'false' ?>" class="rounded-xl border border-white/10 bg-white/[0.035] px-4 py-2.5 text-xs font-semibold text-zinc-300 transition hover:border-orange-400/40 hover:text-white"><?= htmlspecialchars($label) ?></button>
+                    <?php endforeach; ?>
+                </div>
+                <p id="feature-count" class="mt-4 text-xs text-zinc-500" aria-live="polite"><?= count($features) ?> features</p>
+                <div class="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                     <?php foreach ($features as $feature): ?>
-                        <div class="feature-card reveal relative overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.025] p-7 transition duration-300 hover:-translate-y-1 hover:border-orange-400/20 hover:bg-white/[0.04]">
+                        <div data-feature-category="<?= htmlspecialchars($feature['category']) ?>" class="feature-card reveal relative overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.025] p-7 transition duration-300 hover:-translate-y-1 hover:border-orange-400/20 hover:bg-white/[0.04]">
                             <div class="mb-6 flex h-11 w-11 items-center justify-center rounded-xl border border-orange-400/20 bg-orange-400/[0.08] text-orange-400">
                                 <span class="h-5 w-5">
                                     <?= icon($feature['icon']) ?>
@@ -620,60 +695,44 @@ function icon(string $name): string
             </div>
         </section>
 
+        <section id="installers" class="border-y border-white/[0.06] bg-white/[0.015] px-6 py-24">
+            <div class="mx-auto max-w-7xl">
+                <div class="reveal max-w-3xl"><p class="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-orange-400">Install more. Configure less.</p><h2 class="text-4xl font-bold tracking-tight md:text-5xl">Minecraft content.<br><span class="text-zinc-600">Applications from source.</span></h2><p class="mt-6 text-base leading-8 text-zinc-400">Choose what your Cell runs, review the installation and follow its progress in a dedicated view.</p></div>
+                <div class="mt-12 grid gap-5 lg:grid-cols-2">
+                    <article class="reveal rounded-3xl border border-white/[0.08] bg-[#101010] p-7 md:p-9"><span class="text-xs font-bold uppercase tracking-widest text-orange-400">Minecraft</span><h3 class="mt-4 text-2xl font-bold">From a JAR to your own modpack.</h3><p class="mt-4 text-sm leading-7 text-zinc-400">Browse Modrinth and CurseForge content through HiveRegistry. Choose compatible game versions and loaders, install mods or plugins, or deploy a published modpack.</p><ul class="mt-6 space-y-3 text-sm leading-6 text-zinc-400"><li>Build a custom pack with required dependency resolution and basic compatibility checks.</li><li>Save reusable packs and export Modrinth or CurseForge manifests where supported.</li><li>Confirm file replacement for modpacks, follow logs and retain previous files for rollback.</li></ul></article>
+                    <article class="reveal rounded-3xl border border-orange-400/20 bg-orange-400/[0.035] p-7 md:p-9"><span class="text-xs font-bold uppercase tracking-widest text-orange-400">Application preinstalls</span><h3 class="mt-4 text-2xl font-bold">A recipe, not just an image.</h3><p class="mt-4 text-sm leading-7 text-zinc-400">Admins offer trusted recipes in a Comb or HiveRegistry. Git checkout, downloads, file operations and dependency commands prepare the application before its files replace the Cell.</p><ul class="mt-6 space-y-3 text-sm leading-6 text-zinc-400"><li>Discord Tickets provides a source-install example for Node.js bot hosting.</li><li>Customize declared installation fields, such as a Git tag or commit.</li><li>Configure private runtime credentials on Startup after installation.</li></ul></article>
+                </div>
+            </div>
+        </section>
+
+        <section id="ecosystem" class="px-6 py-24">
+            <div class="mx-auto max-w-7xl">
+                <div class="reveal max-w-3xl"><p class="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-orange-400">Extend your hive</p><h2 class="text-4xl font-bold tracking-tight md:text-5xl">Your catalogue.<br><span class="text-zinc-600">Your panel experience.</span></h2></div>
+                <div class="mt-12 grid gap-5 lg:grid-cols-3">
+                    <article class="reveal rounded-2xl border border-white/[0.08] bg-[#101010] p-7"><h3 class="text-xl font-bold">HiveRegistry</h3><p class="mt-4 text-sm leading-7 text-zinc-400">An optional resource catalogue for Combs, Minecraft versions and installation assets. Use the public service or host your own Registry.</p><p class="mt-4 text-sm leading-7 text-zinc-500">Provider keys stay in Registry. Cached assets and a central API serve supported catalogue and installer workflows.</p></article>
+                    <article class="reveal rounded-2xl border border-white/[0.08] bg-[#101010] p-7"><h3 class="text-xl font-bold">Nectar extensions</h3><p class="mt-4 text-sm leading-7 text-zinc-400">Add full pages that share the panel layout, place links within sidebar groups and extend existing screens through interface slots.</p><p class="mt-4 text-sm leading-7 text-zinc-500">Administrators review declared permissions, including network access, before enabling extensions.</p></article>
+                    <article class="reveal rounded-2xl border border-white/[0.08] bg-[#101010] p-7"><h3 class="text-xl font-bold">Themes and languages</h3><p class="mt-4 text-sm leading-7 text-zinc-400">Admins create themes from design tokens and choose which ones users can select. Users also control light, dark or system appearance.</p><p class="mt-4 text-sm leading-7 text-zinc-500">Language files provide an English fallback and a partial German catalogue. Translation coverage is growing.</p></article>
+                </div>
+            </div>
+        </section>
+
         <section id="preview" class="px-6 py-24 md:py-32">
             <div class="mx-auto max-w-7xl">
-                <div class="reveal mx-auto max-w-3xl text-center">
-                    <p class="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-orange-400">
-                        Cell management
-                    </p>
-
-                    <h2 class="text-4xl font-bold tracking-tight text-white md:text-5xl">
-                        Everything around your server, in one place.
-                    </h2>
-
-                    <p class="mx-auto mt-6 max-w-2xl text-base leading-8 text-zinc-400">
-                        A Cell is your running game server. HivePanel brings its console, files, players, schedules, backups and configuration together into one focused interface.
-                    </p>
-                </div>
-
-                <div class="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-                    <?php foreach ($images as $image): ?>
-                        <button
-                            type="button"
-                            onclick="openLightbox('<?= htmlspecialchars($image['src']) ?>')"
-                            class="group reveal overflow-hidden rounded-2xl border border-white/[0.07] bg-[#101010] text-left transition duration-300 hover:-translate-y-1 hover:border-orange-400/30"
-                        >
-                            <div class="overflow-hidden border-b border-white/[0.06]">
-                                <img
-                                    src="<?= htmlspecialchars($image['src']) ?>"
-                                    alt="<?= htmlspecialchars($image['title']) ?>"
-                                    class="aspect-[16/9] w-full object-cover object-top opacity-80 transition duration-500 group-hover:scale-[1.025] group-hover:opacity-100"
-                                >
-                            </div>
-
-                            <div class="p-5">
-                                <div class="flex items-center justify-between gap-3">
-                                    <h3 class="font-bold text-white">
-                                        <?= htmlspecialchars($image['title']) ?>
-                                    </h3>
-
-                                    <svg
-                                        class="h-4 w-4 text-zinc-600 transition group-hover:translate-x-0.5 group-hover:text-orange-400"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                    >
-                                        <path d="M5 12h14"/>
-                                        <path d="m13 6 6 6-6 6"/>
-                                    </svg>
-                                </div>
-
-                                <p class="mt-2 text-sm leading-6 text-zinc-500">
-                                    <?= htmlspecialchars($image['description']) ?>
-                                </p>
-                            </div>
-                        </button>
+                <div class="reveal max-w-3xl"><p class="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-orange-400">Made for the way you host</p><h2 class="text-4xl font-bold tracking-tight md:text-5xl">Explore HivePanel.<br><span class="text-zinc-600">From install to everyday management.</span></h2><p class="mt-6 text-base leading-8 text-zinc-400">Discover installers, custom modpacks, extensions and themes alongside the console, files, players, schedules and backups you use every day.</p></div>
+                <div class="mt-12 grid gap-6 lg:grid-cols-2">
+                    <?php foreach ($gallery as $shot):
+                        $imageSrc = is_file(__DIR__ . $shot['src']) ? $shot['src'] : (isset($shot['fallback']) && is_file(__DIR__ . $shot['fallback']) ? $shot['fallback'] : null);
+                    ?>
+                        <article class="reveal overflow-hidden rounded-3xl border border-white/[0.08] bg-[#101010]">
+                            <div class="flex items-center gap-2 border-b border-white/[0.06] bg-white/[0.025] px-5 py-3"><span class="h-2 w-2 rounded-full bg-orange-400/70"></span><span class="text-[11px] font-semibold text-zinc-400"><?= htmlspecialchars($shot['label']) ?></span></div>
+                            <?php if ($imageSrc): ?>
+                                <button type="button" class="group block w-full overflow-hidden" onclick="openLightbox('<?= htmlspecialchars($imageSrc) ?>')" aria-label="Enlarge <?= htmlspecialchars($shot['label']) ?> screenshot"><img src="<?= htmlspecialchars($imageSrc) ?>" alt="<?= htmlspecialchars($shot['label']) ?> in HivePanel" loading="lazy" class="aspect-[16/10] w-full object-cover object-top transition duration-500 group-hover:scale-[1.02]" /></button>
+                            <?php else: ?>
+                                <!-- Add the real screenshot at <?= htmlspecialchars($shot['src']) ?>. Capture instructions are in SCREENSHOT-GUIDE.md. -->
+                                <div class="relative flex aspect-[16/10] items-center justify-center overflow-hidden border-b border-white/[0.06] bg-[#0c0c0c]"><div class="hive-grid absolute inset-0 opacity-30"></div><div class="absolute h-64 w-64 rounded-full bg-orange-500/[0.06] blur-3xl"></div><div class="relative px-6 text-center"><span class="mx-auto block h-10 w-10 text-orange-400/60"><?= icon($shot['icon']) ?></span><p class="mt-4 text-sm font-semibold text-zinc-400"><?= htmlspecialchars($shot['label']) ?></p><p class="mt-2 text-xs text-zinc-600">Preview coming soon</p></div></div>
+                            <?php endif; ?>
+                            <div class="p-6 md:p-7"><h3 class="text-xl font-bold text-white"><?= htmlspecialchars($shot['title']) ?></h3><p class="mt-3 text-sm leading-7 text-zinc-400"><?= htmlspecialchars($shot['description']) ?></p></div>
+                        </article>
                     <?php endforeach; ?>
                 </div>
             </div>
@@ -694,7 +753,7 @@ function icon(string $name): string
                         </h2>
 
                         <p class="mt-6 text-base leading-8 text-zinc-400">
-                            Panel is the central control plane. Nodes provide the machines that run your game servers, while Worker connects each Node back to Panel and manages the Cells running on it.
+                            Panel is the central control plane. Nodes provide the machines that run your servers and bots, while Worker connects each Node back to Panel and manages the Cells running on it.
                         </p>
 
                         <div class="mt-10 space-y-5">
@@ -753,6 +812,7 @@ function icon(string $name): string
                                 </div>
                             </div>
 
+                            <div class="flex items-start gap-4"><div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.035] text-zinc-300"><span class="h-5 w-5"><?= icon('comb') ?></span></div><div><p class="font-bold text-white">HiveRegistry <span class="text-xs font-normal text-zinc-500">Optional</span></p><p class="mt-1 text-sm leading-6 text-zinc-500">Publishes Combs, catalogue metadata and installation assets. Core Cell management can use locally managed Combs.</p></div></div>
                             <div class="flex items-start gap-4">
                                 <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.035] text-zinc-300">
                                     <span class="h-5 w-5">
@@ -766,7 +826,7 @@ function icon(string $name): string
                                     </p>
 
                                     <p class="mt-1 text-sm leading-6 text-zinc-500">
-                                        A running game server instance created and managed by HivePanel.
+                                        A game server or application instance created and managed by HivePanel.
                                     </p>
                                 </div>
                             </div>
@@ -1008,7 +1068,7 @@ function icon(string $name): string
                         </h2>
 
                         <p class="mt-6 text-base leading-8 text-zinc-400">
-                            Combs tell HivePanel how a particular type of game server should be installed and started. They bundle the runtime, installation process, variables and startup configuration needed to create a Cell.
+                            Combs define how a game server or application is installed and started. They bring together runtime images, editable variables, shutdown behavior and installation instructions, and can offer their own preinstall recipes.
                         </p>
 
                         <div class="mt-8 space-y-4">
@@ -1019,7 +1079,7 @@ function icon(string $name): string
                                     </span>
                                 </div>
 
-                                Runtime and image configuration
+                                Multiple runtime image choices
                             </div>
 
                             <div class="flex items-center gap-3 text-sm text-zinc-400">
@@ -1029,7 +1089,7 @@ function icon(string $name): string
                                     </span>
                                 </div>
 
-                                Installation instructions
+                                Git, dependency and file-operation recipes
                             </div>
 
                             <div class="flex items-center gap-3 text-sm text-zinc-400">
@@ -1039,7 +1099,7 @@ function icon(string $name): string
                                     </span>
                                 </div>
 
-                                Startup commands and variables
+                                Editable startup variables and shutdown settings
                             </div>
 
                             <div class="flex items-center gap-3 text-sm text-zinc-400">
@@ -1049,7 +1109,7 @@ function icon(string $name): string
                                     </span>
                                 </div>
 
-                                Reusable across Nodes
+                                Reusable across Nodes, with retained reinstall values
                             </div>
                         </div>
                     </div>
@@ -1142,7 +1202,7 @@ function icon(string $name): string
                                 </p>
 
                                 <p class="mt-2 text-xs leading-5 text-zinc-500">
-                                    Defines how the game server is built
+                                    Defines the runtime and installation recipe
                                 </p>
                             </div>
 
@@ -1188,7 +1248,7 @@ function icon(string $name): string
                                 </p>
 
                                 <p class="mt-2 text-xs leading-5 text-zinc-500">
-                                    Your running game server
+                                    Your server or application
                                 </p>
                             </div>
                         </div>
@@ -1252,7 +1312,7 @@ function icon(string $name): string
                         </h3>
 
                         <p class="mt-3 text-sm leading-7 text-zinc-500">
-                            Worker prepares the environment and installs the game server automatically.
+                            Worker prepares the Cell, runs the installation instructions and reports progress before you start it.
                         </p>
                     </div>
 
@@ -1297,7 +1357,7 @@ function icon(string $name): string
                             </h2>
 
                             <p class="mt-6 max-w-2xl text-base leading-8 text-zinc-400">
-                                HivePanel is being developed as an open source project. Follow development, report issues, contribute improvements or deploy it on infrastructure you control.
+                                HivePanel, HivePanel Worker and HiveRegistry are MIT-licensed projects. Inspect the code, contribute improvements, adapt the software and run it on infrastructure you control.
                             </p>
                         </div>
 
@@ -1376,7 +1436,7 @@ function icon(string $name): string
                 >
 
                 <p class="mt-3 max-w-md text-xs leading-6 text-zinc-600">
-                    Modern open source game server management.
+                    MIT-licensed game server and bot hosting.
                 </p>
             </div>
 
@@ -1385,6 +1445,8 @@ function icon(string $name): string
                     Features
                 </a>
 
+                <a href="#installers" class="transition hover:text-white">Installers</a>
+                <a href="#ecosystem" class="transition hover:text-white">Ecosystem</a>
                 <a href="#preview" class="transition hover:text-white">
                     Preview
                 </a>
@@ -1412,7 +1474,7 @@ function icon(string $name): string
             </div>
 
             <p class="text-xs text-zinc-700">
-                © <?= date('Y') ?> HivePanel
+                © <?= date('Y') ?> Jordan Watts · Hive Development
             </p>
         </div>
     </footer>
@@ -1501,5 +1563,20 @@ function icon(string $name): string
     });
 </script>
 
+<script>
+    document.querySelectorAll('[data-feature-filter]').forEach((button) => {
+        button.addEventListener('click', () => {
+            const selected = button.dataset.featureFilter;
+            let visible = 0;
+            document.querySelectorAll('[data-feature-category]').forEach((card) => {
+                const matches = selected === 'all' || card.dataset.featureCategory === selected;
+                card.hidden = !matches;
+                if (matches) visible++;
+            });
+            document.querySelectorAll('[data-feature-filter]').forEach((filter) => filter.setAttribute('aria-pressed', String(filter === button)));
+            document.getElementById('feature-count').textContent = `${visible} features`;
+        });
+    });
+</script>
 </body>
 </html>
