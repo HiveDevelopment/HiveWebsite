@@ -106,10 +106,10 @@
             'image' => 'https://hivepanel.dev/assets/imgs/social-preview.png',
             'softwareHelp' => [
                 '@type' => 'WebPage',
-                'url' => 'https://github.com/HiveOSSoftware',
+                'url' => 'https://github.com/HiveDevelopment',
             ],
             'sameAs' => [
-                'https://github.com/HiveOSSoftware',
+                'https://github.com/HiveDevelopment',
             ],
             'offers' => [
                 '@type' => 'Offer',
@@ -436,7 +436,7 @@ function icon(string $name): string
 
             <div class="flex items-center gap-3">
                 <a
-                    href="https://github.com/HiveOSSoftware"
+                    href="https://github.com/HiveDevelopment"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="hidden rounded-lg px-4 py-2 text-sm font-semibold text-zinc-300 transition hover:bg-white/[0.05] hover:text-white sm:block"
@@ -496,7 +496,7 @@ function icon(string $name): string
                         </a>
 
                         <a
-                            href="https://github.com/HiveOSSoftware"
+                            href="https://github.com/HiveDevelopment"
                             target="_blank"
                             rel="noopener noreferrer"
                             class="flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.035] px-6 py-3.5 text-sm font-bold text-white transition hover:border-white/20 hover:bg-white/[0.07] sm:w-auto"
@@ -1303,7 +1303,7 @@ function icon(string $name): string
 
                         <div class="flex flex-col gap-3 sm:flex-row lg:flex-col">
                             <a
-                                href="https://github.com/HiveOSSoftware"
+                                href="https://github.com/HiveDevelopment"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-bold text-black transition hover:bg-zinc-200"
@@ -1354,7 +1354,7 @@ function icon(string $name): string
                     </a>
 
                     <a
-                        href="https://github.com/HiveOSSoftware"
+                        href="https://github.com/HiveDevelopment"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="rounded-xl border border-white/10 bg-white/[0.03] px-7 py-3.5 text-sm font-bold transition hover:bg-white/[0.07]"
@@ -1398,7 +1398,7 @@ function icon(string $name): string
                 </a>
 
                 <a
-                    href="https://github.com/HiveOSSoftware"
+                    href="https://github.com/HiveDevelopment"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="transition hover:text-white"
